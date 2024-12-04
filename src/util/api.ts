@@ -25,10 +25,6 @@ const fetchData = async () => {
   }
 };
 
-fetchData()
-  .then((data) => {
-    console.log("API 호출 성공:", data);
-  })
-  .catch((error) => {
-    console.error("API 호출 실패:", error);
-  });
+fetchData().catch((error) => {
+  console.error("API 호출 실패:", error);
+});
