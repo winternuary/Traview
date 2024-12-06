@@ -4,14 +4,13 @@ export const HeaderLayout = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 40px;
+  padding: 20px 40px;
   height: 60px;
-  background-color: #f8f9fa;
-  border-bottom: 1px solid #e9ecef;
+  background-color: #fff3e0;
 `;
 
 export const Logo = styled.img`
-  height: 40px;
+  height: 50px;
 `;
 
 export const SearchBarWrapper = styled.div`
@@ -32,15 +31,15 @@ export const SearchInput = styled.input`
 `;
 
 export const SearchButton = styled.button`
-  padding: 8px 16px;
+  padding: 7px 14px;
   font-size: 14px;
-  background-color: #007bff;
+  background-color: #fb8c00;
   color: #fff;
-  border: 1px solid #007bff;
+  border: 1px solid #fb8c00;
   border-radius: 0 4px 4px 0;
   cursor: pointer;
 
   &:hover {
-    background-color: #0056b3;
+    background-color: #e65100;
   }
 `;
