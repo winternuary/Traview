@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import * as S from "./style";
 
@@ -29,10 +29,11 @@ export const Main = () => {
             _type: "json",
             listYN: "Y",
             arrange: "A",
-            mapX: "126.97843", // 예시 경도
-            mapY: "37.56668", // 예시 위도
+            mapX: "126.97843",
+            mapY: "37.56668",
             radius: "1000",
-            serviceKey: "YOUR_SERVICE_KEY_HERE", // 발급받은 API 키
+            serviceKey:
+              "zx4y0EUfte4M0R0sNg35hPlDB+lTO7fGbsEx3Ztjv5YsVXEklR7mlEsOHvOLrGVZ10acMJRqvwE4qW4/0c8qrg==",
           },
         },
       );
@@ -40,7 +41,7 @@ export const Main = () => {
       const items = response.data.response.body.items.item || [];
       setTravelList(items);
     } catch (error) {
-      console.error("Failed to fetch travel info:", error);
+      console.error(error);
     } finally {
       setLoading(false);
     }
@@ -67,15 +68,7 @@ export const Main = () => {
                 <h2>{info.title}</h2>
                 <p>{info.addr1 || "주소 정보 없음"}</p>
               </div>
-              <button
-                onClick={() =>
-                  window.alert(
-                    `선택한 장소:\n${info.title}\n좌표: ${info.mapx}, ${info.mapy}`,
-                  )
-                }
-              >
-                자세히 보기
-              </button>
+              <button>자세히 보기</button>
             </S.TravelCard>
           ))}
         </S.TravelList>
