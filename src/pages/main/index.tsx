@@ -23,15 +23,15 @@ export const Main = () => {
         "https://apis.data.go.kr/B551011/KorService1/locationBasedList1",
         {
           params: {
-            numOfRows: 10,
+            numOfRows: 50,
             pageNo: 1,
             MobileOS: "ETC",
             MobileApp: "TravelApp",
             _type: "json",
             listYN: "Y",
             arrange: "A",
-            mapX: "126.97843",
-            mapY: "37.56668",
+            mapX: "129.0756416",
+            mapY: "35.1795543",
             radius: "1000",
             serviceKey:
               "zx4y0EUfte4M0R0sNg35hPlDB+lTO7fGbsEx3Ztjv5YsVXEklR7mlEsOHvOLrGVZ10acMJRqvwE4qW4/0c8qrg==",
