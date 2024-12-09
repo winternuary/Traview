@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Header } from "../../components";
 import axios from "axios";
 import * as S from "./style";
 
@@ -52,27 +53,30 @@ export const Main = () => {
   }, []);
 
   return (
-    <S.MainLayout>
-      <S.Title>여행 지역 정보</S.Title>
-      {loading ? (
-        <p>로딩 중...</p>
-      ) : (
-        <S.TravelList>
-          {travelList.map((info) => (
-            <S.TravelCard key={info.contentid}>
-              <img
-                src={info.firstimage || "https://via.placeholder.com/300x200"}
-                alt={info.title}
-              />
-              <div>
-                <h2>{info.title}</h2>
-                <p>{info.addr1 || "주소 정보 없음"}</p>
-              </div>
-              <button>자세히 보기</button>
-            </S.TravelCard>
-          ))}
-        </S.TravelList>
-      )}
-    </S.MainLayout>
+    <>
+      <Header />
+      <S.MainLayout>
+        <S.Title>여행 지역 정보</S.Title>
+        {loading ? (
+          <p>로딩 중...</p>
+        ) : (
+          <S.TravelList>
+            {travelList.map((info) => (
+              <S.TravelCard key={info.contentid}>
+                <img
+                  src={info.firstimage || "https://via.placeholder.com/300x200"}
+                  alt={info.title}
+                />
+                <div>
+                  <h2>{info.title}</h2>
+                  <p>{info.addr1 || "주소 정보 없음"}</p>
+                </div>
+                <button>자세히 보기</button>
+              </S.TravelCard>
+            ))}
+          </S.TravelList>
+        )}
+      </S.MainLayout>
+    </>
   );
 };

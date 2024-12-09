@@ -21,8 +21,10 @@ export const TravelList = styled.div`
   gap: 15px;
   justify-content: center;
 `;
-
 export const TravelCard = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* 상단 콘텐츠와 하단 버튼 사이를 채움 */
   width: 300px;
   border: 1px solid #dee2e6;
   border-radius: 8px;
@@ -37,6 +39,7 @@ export const TravelCard = styled.div`
   }
 
   div {
+    flex: 1; /* 내부 콘텐츠가 버튼 위 공간을 채우도록 설정 */
     padding: 15px;
   }
 
@@ -52,17 +55,18 @@ export const TravelCard = styled.div`
   }
 
   button {
+    margin-top: auto;
     width: 100%;
     padding: 10px;
     border: none;
-    background: #51cf66;
+    background-color: #fb8c00;
     color: white;
     font-size: 1rem;
     cursor: pointer;
     border-radius: 0 0 8px 8px;
 
     &:hover {
-      background: #40c057;
+      background-color: #f57c00;
     }
   }
 `;

@@ -31,11 +31,11 @@ export const SearchInput = styled.input`
 `;
 
 export const SearchButton = styled.button`
-  padding: 7px 14px;
+  padding: 7.5px 14.5px;
   font-size: 14px;
   background-color: #fb8c00;
   color: #fff;
-  border: 1px solid #fb8c00;
+  border: none;
   border-radius: 0 4px 4px 0;
   cursor: pointer;
 
