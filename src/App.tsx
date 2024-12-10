@@ -1,6 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { Main } from "./pages/index";
-export { Detail } from "./pages/index";
+import { Main } from "./pages/main/index";
 
 function App() {
   return (

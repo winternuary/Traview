@@ -1,2 +1,1 @@
-export { Main } from "../pages/main";
-export { Detail } from "../pages/deatil";
+export { Main } from "./main/index";
