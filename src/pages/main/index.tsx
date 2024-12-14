@@ -31,7 +31,7 @@ export const Main = () => {
             arrange: "A",
             mapX: "129.0756416",
             mapY: "35.1795543",
-            radius: "1000",
+            radius: "30000",
             serviceKey:
               "zx4y0EUfte4M0R0sNg35hPlDB+lTO7fGbsEx3Ztjv5YsVXEklR7mlEsOHvOLrGVZ10acMJRqvwE4qW4/0c8qrg==",
           },
@@ -70,9 +70,9 @@ export const Main = () => {
                   <h2>{info.title}</h2>
                   <p>{info.addr1 || "주소 정보 없음"}</p>
                 </div>
-                <button
-                  onClick={() => handleDetailClick(info.contentid)}
-                ></button>
+                <button onClick={() => handleDetailClick(info.contentid)}>
+                  자세히보기
+                </button>
               </S.TravelCard>
             ))}
           </S.TravelList>
