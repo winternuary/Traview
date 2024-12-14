@@ -2,19 +2,18 @@ import { useEffect, useState } from "react";
 import { Header } from "../../components";
 import axios from "axios";
 import * as S from "./style";
-
-type TravelInfo = {
-  contentid: string;
-  title: string;
-  addr1: string;
-  firstimage: string;
-  mapx: string;
-  mapy: string;
-};
+import { useAtom } from "jotai";
+import { travelListAtom } from "../../atom/travelAtom";
+import { useNavigate } from "react-router-dom";
 
 export const Main = () => {
-  const [travelList, setTravelList] = useState<TravelInfo[]>([]);
+  const [travelList, setTravelList] = useAtom(travelListAtom);
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
+
+  const handleDetailClick = (contentid: string) => {
+    navigate(`/detail/${contentid}`);
+  };
 
   const fetchTravelInfo = async () => {
     setLoading(true);
@@ -71,7 +70,9 @@ export const Main = () => {
                   <h2>{info.title}</h2>
                   <p>{info.addr1 || "주소 정보 없음"}</p>
                 </div>
-                <button>자세히 보기</button>
+                <button
+                  onClick={() => handleDetailClick(info.contentid)}
+                ></button>
               </S.TravelCard>
             ))}
           </S.TravelList>
