@@ -4,9 +4,30 @@ export const MainLayout = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px;
+  padding: 20px 132px;
   background-color: #fff3e0;
-  min-height: 100vh;
+`;
+
+export const TitleBox = styled.div`
+  width: 100%;
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+export const Button = styled.button`
+  padding: 10px 16px;
+  font-size: 14px;
+  background-color: #fb8c00;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #e65100;
+  }
 `;
 
 export const Title = styled.h1`
@@ -24,7 +45,7 @@ export const TravelList = styled.div`
 export const TravelCard = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-between; /* 상단 콘텐츠와 하단 버튼 사이를 채움 */
+  justify-content: space-between;
   width: 300px;
   border: 1px solid #dee2e6;
   border-radius: 8px;
@@ -39,7 +60,7 @@ export const TravelCard = styled.div`
   }
 
   div {
-    flex: 1; /* 내부 콘텐츠가 버튼 위 공간을 채우도록 설정 */
+    flex: 1;
     padding: 15px;
   }
 

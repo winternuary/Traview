@@ -5,8 +5,10 @@ import * as S from "./style";
 import { useAtom } from "jotai";
 import { travelListAtom } from "../../atom/travelAtom";
 import { useNavigate } from "react-router-dom";
+import FilterModal from "../../components/modal/index";
 
 export const Main = () => {
+  const [showModal, setShowModal] = useState(false);
   const [travelList, setTravelList] = useAtom(travelListAtom);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
@@ -51,11 +53,50 @@ export const Main = () => {
     fetchTravelInfo();
   }, []);
 
+  const fetchKeywordInfo = async (filters: any) => {
+    setLoading(true);
+    try {
+      const response = await axios.get(
+        "https://apis.data.go.kr/B551011/KorService1/searchKeyword1",
+        {
+          params: {
+            numOfRows: 50,
+            pageNo: 1,
+            MobileOS: "ETC",
+            MobileApp: "TravelApp",
+            _type: "json",
+            listYN: "Y",
+            arrange: "A",
+            serviceKey:
+              "zx4y0EUfte4M0R0sNg35hPlDB+lTO7fGbsEx3Ztjv5YsVXEklR7mlEsOHvOLrGVZ10acMJRqvwE4qW4/0c8qrg==",
+            ...filters,
+          },
+        },
+      );
+
+      const items = response.data.response.body.items.item || [];
+      setTravelList(items);
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleFilterSearch = (filters: any) => {
+    fetchKeywordInfo(filters);
+    setShowModal(false);
+  };
+
   return (
     <>
       <Header />
       <S.MainLayout>
-        <S.Title>여행 지역 정보</S.Title>
+        <S.TitleBox>
+          <S.Title>여행 지역 정보</S.Title>
+          <S.Button onClick={() => setShowModal(true)}>필터링하기</S.Button>
+        </S.TitleBox>
+
         {loading ? (
           <p>로딩 중...</p>
         ) : (
@@ -75,6 +116,12 @@ export const Main = () => {
                 </button>
               </S.TravelCard>
             ))}
+            {showModal && (
+              <FilterModal
+                onClose={() => setShowModal(false)}
+                onSearch={handleFilterSearch}
+              />
+            )}
           </S.TravelList>
         )}
       </S.MainLayout>
